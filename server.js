@@ -1,23 +1,23 @@
-// DEPENDENCIES
-
-// initialize .env variables
 require("dotenv").config();
+require('./config/db.connection')
 
-// pull PORT from .env, give default value of 4000 and establish DB Connection
-const { PORT, MONGODB_URI } = process.env;
-
-// import express
 const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
 
-// create application object
+const { PORT } = process.env;
+
+const recordingController = require('./controllers/recording-controller');
+
 const app = express();
 
+app.use(express.json());
+app.use(cors());
+app.use(morgan("dev"));
 
-
+app.use('/archive', recordingController)
 
 // ROUTES
-
-// TEST ROUTE
 app.get("/", (req, res) => {
 	res.send("hello world");
 });

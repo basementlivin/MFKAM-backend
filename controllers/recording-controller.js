@@ -1,5 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const {RecordingDetails} = require('../models')
+
+
 
 
 // ROUTES
@@ -7,17 +10,29 @@ const router = express.Router()
 
 // RECORDING INDEX ROUTE
 router.get("/", async (req, res) => {
-	res.status(200).json({message: "recording index route"})
+	try {
+        res.json(await RecordingDetails.find({}));
+    } catch (error) {
+        res.status(400).json(error);
+    }
 });
 
 // RECORDING CREATE ROUTE
 router.post("/", async (req, res) =>  {
-	res.status(201).json({message: "recording create route"})
+    try {
+        res.json(await RecordingDetails.create(req.body));
+    } catch (error) {
+	res.status(400).json(error);
+    }
 });
 
 // RECORDING SHOW ROUTE
 router.get("/:id", async (req, res) => {
-    res.status(200).json({message: "recording show route: " + req.params.id})
+    try {
+        res.json(await RecordingDetails.findById(req.params.id));
+    } catch (error) {
+        res.status(400).json(error);
+    }
 });
 
 // RECORDING DELETE ROUTE

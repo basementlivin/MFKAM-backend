@@ -8,6 +8,7 @@ const morgan = require("morgan");
 const { PORT } = process.env;
 
 const recordingController = require('./controllers/recording-controller');
+const performerController = require('./controllers/performer-controller');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use('/archive', recordingController)
+app.use('/performer', performerController)
 
 // ROUTES
 app.get("/", (req, res) => {

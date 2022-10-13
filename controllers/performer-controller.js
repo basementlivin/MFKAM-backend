@@ -8,7 +8,7 @@ const {Performer} = require('../models')
 // ROUTES
 
 
-// USER INDEX ROUTE
+// PERFORMER INDEX ROUTE
 router.get("/", async (req, res) => {
 	try {
         res.json(await Performer.find({}));
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-// USER CREATE ROUTE
+// PERFORMER CREATE ROUTE
 router.post("/", async (req, res) =>  {
     try {
         res.json(await Performer.create(req.body));
@@ -26,7 +26,7 @@ router.post("/", async (req, res) =>  {
     }
 });
 
-// USER SHOW ROUTE
+// PERFORMER SHOW ROUTE
 router.get("/:id", async (req, res) => {
     try {
         res.json(await Performer.findById(req.params.id));
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// USER UPDATE ROUTE
+// PERFORMER UPDATE ROUTE
 router.put("/:id", async (req, res) => {
     try {
         res.json(await Performer.findByIdAndUpdate(req.params.id, req.body, {new:true}));
@@ -44,7 +44,7 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// USER DELETE ROUTE
+// PERFORMER DELETE ROUTE
 router.delete("/:id", async (req, res) => {
     try {
         res.json(await Performer.findByIdAndRemove(req.params.id));

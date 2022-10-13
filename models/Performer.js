@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const PerformerSchema = new mongoose.Schema({
-    artistname: {type: String, required: true},
+    name: {type: String, required: true},
     email: {type: String, required: true},
-    location: {type: Number, required: true},
+    performance_count: {type: Number, required: true, default: 0},
 },{timestamps: true});
 
 const Performer = mongoose.model("Performer", PerformerSchema);

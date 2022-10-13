@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const RecordingSchema = new mongoose.Schema({
-    artistname: {type: String, required: true},
-    location: {type: String, required: true},
+    performer: {type: mongoose.Types.ObjectId, ref: 'Performer', default: null},
+    location: {type: Number, required: true},
     environment: {type: String, required: true},
     length: {type: Number, required: true},
     notes: {type: String, required: false},

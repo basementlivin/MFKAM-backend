@@ -17,7 +17,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use('/archive', recordingController)
-app.use('/performer', performerController)
+app.use('/performers', performerController)
 
 // ROUTES
 app.get("/", (req, res) => {

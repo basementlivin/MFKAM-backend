@@ -3,8 +3,6 @@ const router = express.Router()
 const {Performer} = require('../models')
 
 
-
-
 // ROUTES
 
 
